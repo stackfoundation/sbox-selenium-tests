@@ -1,0 +1,23 @@
+steps:
+  - run:
+      name: Install application
+      image: 'node:8-alpine'
+      cache: true
+      source:
+        include:
+          - package.json
+      script: |-
+        cd app
+        npm install
+  - run:
+      name: Run tests
+      step: Install application
+      script: |-
+        cd app
+        SELENIUM_BROWSER=chrome \
+        npm run start
+        SELENIUM_BROWSER=firefox \
+        npm run start
+      source:
+        exclude:
+          - node_modules

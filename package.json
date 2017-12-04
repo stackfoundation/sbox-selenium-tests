@@ -1,0 +1,19 @@
+{
+  "name": "sandbox-nodejs-example",
+  "description": "Selenium testing example app using Sandbox workflows",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.x"
+  },
+  "scripts": {
+    "start": "mocha -t 10000 tests.js"
+  },
+  "main": "app.js",
+  "devDependencies": {
+    "mocha": "^4.0.1",
+    "selenium-webdriver": "^3.6.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

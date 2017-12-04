@@ -1,0 +1,27 @@
+steps:
+  - service:
+      name: Selenium Hub
+      image: 'selenium/hub'
+      source:
+        exclude:
+          - '*'
+      ports:
+        - name: 'hub'
+          container: 4444
+          internal: 4444
+          external: 31044
+      readiness:
+        tcp:
+          port: 4444
+  - run :
+      name: Selenium Chrome
+      image: 'selenium/node-chrome' 
+      parallel: true
+      source:
+        exclude:
+          - '*'
+  - run :
+      name: Selenium Firefox
+      image: 'selenium/node-firefox'
+      source:
+        ommit: true
